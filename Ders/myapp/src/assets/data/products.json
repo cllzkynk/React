@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "image": "product1.jpg",
+    "title": "Anker Soundcore",
+    "desc": "Hybrid active Noise Canceling Headphones",
+    "price": 59
+  },
+  {
+    "id": "2",
+    "image": "product2.jpg",
+    "title": "Sony MDRZX110NC",
+    "desc": "Noise Canceling Headphones, Cable, Black",
+    "price": 79
+  },
+  {
+    "id": "3",
+    "image": "product3.jpg",
+    "title": "Bose Soundlink",
+    "desc": "Around Ear Wireless Headphones II, Black",
+    "price": 55
+  },
+  {
+    "id": "4",
+    "image": "product4.jpg",
+    "title": "iJoy Matte",
+    "desc": "Finish Premium Rechargeable Wireless Headphones",
+    "price": 65
+  },
+  {
+    "id": "5",
+    "image": "product5.jpg",
+    "title": "Beats Solo 3",
+    "desc": "Wireless On-Ear Headphones - Apple W1",
+    "price": 70
+  },
+  {
+    "id": "6",
+    "image": "product6.jpg",
+    "title": "Sony WH-1000XM4",
+    "desc": "Wireless Industry Leading Noise Canceling",
+    "price": 99
+  },
+  {
+    "id": "7",
+    "image": "product3.jpg",
+    "title": "Sony ABC",
+    "desc": "Wireless Industry Leading Noise Canceling",
+    "price": 125
+  }
+]

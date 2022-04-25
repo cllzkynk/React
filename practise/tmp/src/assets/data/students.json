@@ -1,0 +1,92 @@
+[
+  {
+    "isim": "Ayşe K",
+    "yas": 25,
+    "kurs": "Gitar",
+    "img": "https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Ali T",
+    "yas": 24,
+    "kurs": "Ney",
+    "img": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Derya C",
+    "yas": 23,
+    "kurs": "Keman",
+    "img": "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Kemal N",
+    "yas": 25,
+    "kurs": "Ney",
+    "img": "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Serap V",
+    "yas": 26,
+    "kurs": "Keman",
+    "img": "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Melek F",
+    "yas": 27,
+    "kurs": "Gitar",
+    "img": "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Ahmet Y",
+    "yas": 25,
+    "kurs": "Ney",
+    "img": "https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Burak H",
+    "yas": 22,
+    "kurs": "Keman",
+    "img": "https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Sedef Y",
+    "yas": 23,
+    "kurs": "Ney",
+    "img": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Ceren R",
+    "yas": 25,
+    "kurs": "Gitar",
+    "img": "https://images.pexels.com/photos/1024311/pexels-photo-1024311.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Ali G",
+    "yas": 24,
+    "kurs": "Ney",
+    "img": "https://images.pexels.com/photos/1484810/pexels-photo-1484810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Fatih Z",
+    "yas": 26,
+    "kurs": "Keman",
+    "img": "https://images.pexels.com/photos/1462980/pexels-photo-1462980.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Zafer T",
+    "yas": 23,
+    "kurs": "Gitar",
+    "img": "https://images.pexels.com/photos/634021/pexels-photo-634021.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Akın A",
+    "yas": 27,
+    "kurs": "Keman",
+    "img": "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    "isim": "Leyla V",
+    "yas": 25,
+    "kurs": "Gitar",
+    "img": "https://images.pexels.com/photos/2773977/pexels-photo-2773977.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  }
+]
