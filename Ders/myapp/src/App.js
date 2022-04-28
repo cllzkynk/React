@@ -24,6 +24,10 @@ import Birthday from "./components/22-birthday/birthday";
 import Person from "./components/22-birthday/person";
 import UseEffect from "./components/22-useEffect";
 import Clock3 from "./components/23-clock-3";
+import UseEffect2 from "./components/24-useeffect2";
+import RamdomImage from "./components/25-random-image";
+import RandomImage2 from "./components/26-ramdom-image2";
+
 
 
 
@@ -66,11 +70,14 @@ const App = () => {
    <Counter/>
      <Birthday/>
        <UseEffect/>
+         <Clock3/>
+          <UseEffect2/>
+           <RamdomImage/>
  */}    
    
 
  
-  <Clock3/>
+  <RandomImage2/>
    
 
   
