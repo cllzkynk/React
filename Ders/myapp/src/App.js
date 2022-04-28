@@ -17,10 +17,21 @@ import BootstrapStatic from "./components/16-bootstrap-static";
 import BootstrapDinamik from "./components/17-bootstrap-dinamik";
 import Header from "./components/18-bootstrap-practise/header";
 import Shop from "./components/18-bootstrap-practise/shop";
+import State from "./components/19-state";
+import Stateless from "./components/20-stateless";
+import Counter from "./components/21-counter";
+import Birthday from "./components/22-birthday/birthday";
+import Person from "./components/22-birthday/person";
+import UseEffect from "./components/22-useEffect";
+import Clock3 from "./components/23-clock-3";
 
 
 
 const App = () => {
+
+
+ 
+
   return (
     <div>
 {/*       
@@ -49,11 +60,20 @@ const App = () => {
       followings="50"/>
 <BootstrapStatic/>
 <BootstrapDinamik/>
+<Shop/>
+<Stateless/>
+ <State/>
+   <Counter/>
+     <Birthday/>
+       <UseEffect/>
  */}    
    
 
-   <Shop/>
+ 
+  <Clock3/>
    
+
+  
   
     
  </div>
