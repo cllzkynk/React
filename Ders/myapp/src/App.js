@@ -1,6 +1,6 @@
 import HelloWorld from "./components/01-hello-world";
-import Comp from './components/02-comp';
-import Jsx, {test1, test2} from "./components/03-jsx";
+import Comp from "./components/02-comp";
+import Jsx, { test1, test2 } from "./components/03-jsx";
 import Jsx2 from "./components/04-jsx-2";
 import JsxLoop from "./components/05-jsx-loop";
 import JsxPractise from "./components/06-jsx-practise";
@@ -27,18 +27,13 @@ import Clock3 from "./components/23-clock-3";
 import UseEffect2 from "./components/24-useeffect2";
 import RamdomImage from "./components/25-random-image";
 import RandomImage2 from "./components/26-ramdom-image2";
-
-
-
+import UserCards from "./components/27-user-cards/user-cards";
+import Countries from "./components/28-countries/countries";
 
 const App = () => {
-
-
- 
-
   return (
     <div>
-{/*       
+      {/*       
       <HelloWorld/>
       <Comp/>
       <Jsx/>
@@ -73,18 +68,15 @@ const App = () => {
          <Clock3/>
           <UseEffect2/>
            <RamdomImage/>
- */}    
-   
+            <RandomImage2/>
+              <UserCards/>
+ */}
 
- 
-  <RandomImage2/>
-   
+    <Countries/>
 
-  
-  
-    
- </div>
+      
+    </div>
   );
-}
+};
 
 export default App;
