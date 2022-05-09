@@ -1,0 +1,11 @@
+.menu ul{
+    display:flex;
+    gap:2rem;
+    list-style-type: none;
+    background-color: rgb(198, 195, 195);
+     
+}
+
+.footer{
+    margin-top: 80vh;
+}
