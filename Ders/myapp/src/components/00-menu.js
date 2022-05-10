@@ -44,6 +44,9 @@ const Menu = () => {
           <li><Link to="/get-context">Get Context</Link></li>
           <li><Link to="/exchange">Exchange</Link></li>
 
+          <li><Link to="/dashboard">Admin Panel</Link></li>
+       
+
 
 
 

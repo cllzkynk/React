@@ -12,7 +12,11 @@ const Topbar = () => {
                 <span>{ (1/EUR).toFixed(2) } €</span>
             </li>
         </ul>
+
+        <h1></h1>
     </div>
+
+  
   )
 }
 export default Topbar
