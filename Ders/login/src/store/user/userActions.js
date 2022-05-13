@@ -1,24 +1,15 @@
-import { types } from "../type"
+import { types } from "../types";
 
-export const loginSuccess =(user)=>({
-
-type:types.LOGIN_SUCCESS,
-payload:user
-
+export const loginSuccess = (user) => ({
+  type: types.LOGIN_SUCCESS,
+  payload: user
 });
 
-export const loginFail=()=>({
-    type:types.LOGIN_FAIL
-
+export const loginFail = () => ({
+    type: types.LOGIN_FAIL
 });
 
 
-export const loginOut=()=>({
-    type:types.LOGOUT,
-
+export const logout = () => ({
+    type: types.LOGOUT
 });
-
-
-
- 
-

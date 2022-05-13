@@ -1,0 +1,12 @@
+.book {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  transition: all 0.5s;
+}
+
+.book img {
+  width: 130px;
+  margin-right: 10px;
+}
