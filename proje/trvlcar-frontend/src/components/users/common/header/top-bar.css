@@ -1,0 +1,44 @@
+.topbar{
+    position: absolute;
+    top: 0;
+    border-bottom: 1px solid white ;
+    z-index:10;
+
+}
+
+.topbar .social-bar{
+list-style: none;
+display:flex;
+font-size:1.3rem  ;
+gap:1rem  t;
+padding:0;
+margin:0 ;
+
+}
+
+.topbar .social-bar a{
+    color:white;
+}
+
+.topbar .contact-bar{
+    list-style: none;
+    display:flex;
+   gap:1rem  ;
+    padding:0;
+    margin:0 ;
+}
+
+.topbar .contact-bar li{
+
+    display:flex;
+    align-items:center;
+    gap:1rem  ;
+   
+
+}
+
+.topbar .contact-bar li svg{
+color:var(--color1);
+font-size:2rem;
+
+}
