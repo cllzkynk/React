@@ -1,0 +1,21 @@
+.main-navbar{
+    position: absolute !important;
+    top: 70px;
+    z-index: 10;
+    width:100%;
+}
+
+.main-navbar .navbar-nav{
+    gap:1rem;
+    font-size: 1.1rem;
+}
+
+.main-navbar .nav-link{
+    padding:0.5rem 1rem !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, 
+.navbar-dark .navbar-nav .show>.nav-link {
+    background-color: var(--color1);
+    border-radius: 0.3rem;
+}

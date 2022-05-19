@@ -1,7 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
-    --color1: rgb(0, 210, 49);
-    --color2: rgb(17, 46, 59);
-    --color3: rgb(2, 108, 26);
-    --color4: rgba(0, 210, 49, 0.4);
-    --color5: rgba(17, 46, 59, 0.4);
-  }
+  --color1: rgb(0, 210, 49);
+  --color2: rgb(17, 46, 59);
+  --color3: rgb(2, 108, 26);
+  --color4: rgba(0, 210, 49, 0.4);
+  --color5: rgba(17, 46, 59, 0.4);
+}
+
+body{
+  font-family: Roboto;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color1);
+  border-color:  var(--color1);
+}
+
+.btn-primary:hover {
+  background-color: var(--color3);
+  border-color: var(--color3);
+}
+
+.btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+  background-color: var(--color3);
+  border-color: var(--color3);
+}
+
+
+.btn-secondary {
+  background-color: var(--color2);
+  border-color:  var(--color2);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color5);
+  border-color: var(--color5);
+}
+
+.btn-check:active+.btn-secondary, .btn-check:checked+.btn-secondary, .btn-secondary.active, .btn-secondary:active, .show>.btn-secondary.dropdown-toggle {
+  background-color: var(--color5);
+  border-color: var(--color5);
+}

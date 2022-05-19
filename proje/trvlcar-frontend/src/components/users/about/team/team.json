@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Dona Emmie",
+        "title": "Sales Specialist",
+        "image":"team-member-2.jpg"
+    },
+    {
+        "name":"Robin Kylan",
+        "title": "Sales Specialist",
+        "image":"team-member-1.jpg"
+    },
+    {
+        "name":"Lanny Auston",
+        "title": "Sales Specialist",
+        "image":"team-member-3.jpg"
+    }
+]

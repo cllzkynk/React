@@ -1,15 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import CustomRautes from './router/custom-routes';
+import CustomRoutes from "./router/custom-routes";
 
-function App() {
+const App = () => {
   return (
-<>
-
- <CustomRautes/>
- </>
-
- 
+    <>
+      <CustomRoutes/>
+    </>
   );
 }
 

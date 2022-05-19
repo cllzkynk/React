@@ -1,0 +1,18 @@
+.bookbar{
+    background-color: var(--color1);
+    text-align: center;
+    padding-top:2rem;
+    position: relative;
+}
+
+.bookbar::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width:50px 49vw 0 49vw;
+    border-color:var(--color1) transparent transparent transparent;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

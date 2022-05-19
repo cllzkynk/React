@@ -1,0 +1,33 @@
+.whyus ul {
+list-style: none;
+margin: 0;
+padding: 0;
+
+
+
+}
+
+.whyus li::before {
+    content:"\2665";
+    color :var(--color1);
+    font-size :1.5rem;
+    font-weight :bold;
+   
+    position :absolute;
+    left: 0;top: -8px;
+
+
+
+}
+
+.whyus li{
+    font-weight: 400;
+    color :gray;
+    position: relative;
+}
+
+.whyus li span{
+    font-weight: 500;
+    font-size:1.2rem;
+    color:rgb(96,96,96)
+}

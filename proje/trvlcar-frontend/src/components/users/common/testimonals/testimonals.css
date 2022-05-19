@@ -1,0 +1,37 @@
+.testimonals{
+    background-image: url("../../../../assets/img/bg/testimonal-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding:5rem;
+    position: relative;
+    color: rgb(197, 197, 197);
+}
+
+.testimonals::after{
+    content: "";
+    position: absolute;
+    top:0; left:0;right:0;bottom:0;
+    background-color: var(--color2);
+    opacity: 0.8;
+}
+
+.testimonals h3{
+    color: white;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.testimonals h3::after{
+    content:"";
+    position: absolute ;
+    left:0;
+    bottom:-5px;
+    width:50%;
+    height: 5px;
+    background-color: var(--color1);
+    border-radius: 0.2rem;
+
+}

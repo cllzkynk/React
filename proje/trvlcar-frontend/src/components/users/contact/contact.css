@@ -1,0 +1,9 @@
+.contact-list .contact-bar {
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+.contact-list .contact-bar a,
+.contact-list .contact-bar li div {
+  color: black;
+}

@@ -1,0 +1,13 @@
+.footer{
+    background-color: var(--color2);
+    color: rgb(206, 206, 206);
+    padding: 4rem;
+}
+
+.footer .contact-bar{
+    flex-direction: column;
+}
+
+.footer a{
+    color:rgb(206, 206, 206);
+}

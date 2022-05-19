@@ -1,0 +1,26 @@
+.page-header{
+    background-image: url("../../../../assets/img/bg/page-header-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+}
+
+.page-header::after{
+    content: "";
+    position: absolute;
+    left:0; right: 0; bottom: 0; top:0;
+    background-color: var(--color2);
+    opacity:0.8;
+}
+
+.page-header h1{
+    position: relative;
+    z-index: 5;
+    font-size: 3rem;
+}
