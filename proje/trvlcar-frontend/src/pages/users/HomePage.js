@@ -1,5 +1,5 @@
 import React from 'react'
-import Spacer from '../../components/users/common/spacer/scaper'
+import Spacer from '../../components/users/common/spacer/spacer'
 import Testimonals from '../../components/users/common/testimonals/testimonals'
 import WhyUs from '../../components/users/common/whyus/whyus'
 import Bookbar from '../../components/users/home/bookbar/bookbar'
@@ -9,9 +9,8 @@ const HomePage = () => {
   return (
     <>
       <Slider/>
-    
       <Bookbar/>
-      <Spacer />
+      <Spacer/>
       <Testimonals/>
       <Spacer/>
       <WhyUs/>

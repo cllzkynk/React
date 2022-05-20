@@ -30,7 +30,7 @@ const Testimonals = () => {
             </Swiper>
           </Col>
           <Col md={6}>
-           <Counters/>
+            <Counters/>
           </Col>
         </Row>
       </Container>

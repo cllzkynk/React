@@ -35,3 +35,7 @@
     border-radius: 0.2rem;
 
 }
+
+.swiper-pagination-bullet-active {
+    background: var(--color1) !important;
+}
