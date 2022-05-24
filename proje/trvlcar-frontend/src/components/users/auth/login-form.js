@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { getUser, login } from "../../../api/user-service";
 import { useStore } from "../../../store";
 import { loginSuccess } from "../../../store/user/userActions";
+import PasswordInput from "../common/password-input/password-input";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -77,15 +78,10 @@ const LoginForm = () => {
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          {...formik.getFieldProps("password")}
+        <PasswordInput {...formik.getFieldProps("password")}
           isInvalid={formik.touched.password && formik.errors.password}
           isValid={formik.touched.password && !formik.errors.password}
-        />
-        <Form.Control.Feedback type="invalid">
-          {formik.errors.password}
-        </Form.Control.Feedback>
+          error={formik.errors.password}/>
       </Form.Group>
       <Button variant="primary" type="submit" disabled={loading}>
         {loading && <Spinner animation="border" size="sm"/>}  Login

@@ -1,25 +1,21 @@
 import React, { useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
-import Spacer from "../common/spacer/spacer";
 import * as Yup from "yup";
 import MaskedInput from "react-maskedinput";
 import { useFormik } from "formik";
-import { register } from "../../../api/user-service";
+import { updateProfile } from "../../../api/user-service";
 import { toast } from "react-toastify";
-import PasswordInput from "../common/password-input/password-input";
 
-const RegisterForm = ({setDefaultTab}) => {
+const ProfileForm = ({user}) => {
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    address: "",
-    zipCode: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    firstName: user.firstName,
+    lastName: user.lastName,
+    phoneNumber: user.phoneNumber,
+    address: user.address,
+    zipCode: user.zipCode,
+    email: user.email,
   };
 
   const validationSchema = Yup.object({
@@ -35,27 +31,17 @@ const RegisterForm = ({setDefaultTab}) => {
     address: Yup.string().required("Please enter your address"),
     zipCode: Yup.string().required("Please enter your zip code"),
     email: Yup.string().email().required("Please enter your email"),
-    password: Yup.string()
-      .required("Please enter your password")
-      .min(8, "Must be at least 8 characters")
-      .matches(/[a-z]+/, "One lowercase character")
-      .matches(/[A-Z]+/, "One uppercase character")
-      .matches(/[@$!%*#?&]+/, "One special character")
-      .matches(/\d+/, "One number"),
-    confirmPassword: Yup.string()
-      .required("Please re-enter your password")
-      .oneOf([Yup.ref("password")], "Password fields doesn't match"),
   });
 
   const onSubmit = async (values) => {
     setLoading(true);
 
     try {
-      const resp = await register(values);
-      toast("You are registered successfully");
+      await updateProfile(values);
+      
+      toast("Your profile updated successfully");
       setLoading(false);
-      formik.resetForm();
-      setDefaultTab("login");
+
     } catch (err) {
       toast(err.response.data.message);
       setLoading(false);
@@ -132,11 +118,7 @@ const RegisterForm = ({setDefaultTab}) => {
           {formik.errors.zipCode}
         </Form.Control.Feedback>
       </Form.Group>
-
-      <Spacer height={20} />
-      <hr />
-      <Spacer height={20} />
-
+      
       <Form.Group className="mb-3">
         <Form.Label>Email address</Form.Label>
         <Form.Control
@@ -144,30 +126,18 @@ const RegisterForm = ({setDefaultTab}) => {
           {...formik.getFieldProps("email")}
           isInvalid={formik.touched.email && formik.errors.email}
           isValid={formik.touched.email && !formik.errors.email}
+          disabled
         />
         <Form.Control.Feedback type="invalid">
           {formik.errors.email}
         </Form.Control.Feedback>
       </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <PasswordInput {...formik.getFieldProps("password")}
-          isInvalid={formik.touched.password && formik.errors.password}
-          isValid={formik.touched.password && !formik.errors.password}
-          error={formik.errors.password}/>
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Password Confirm</Form.Label>
-        <PasswordInput {...formik.getFieldProps("confirmPassword")}
-          isInvalid={formik.touched.confirmPassword && formik.errors.confirmPassword}
-          isValid={formik.touched.confirmPassword && !formik.errors.confirmPassword}
-          error={formik.errors.confirmPassword}/>
-      </Form.Group>
+      
       <Button variant="primary" type="submit" disabled={loading}>
-        {loading && <Spinner animation="border" size="sm" />} Register
+        {loading && <Spinner animation="border" size="sm" />} Update
       </Button>
     </Form>
   );
 };
 
-export default RegisterForm;
+export default ProfileForm;

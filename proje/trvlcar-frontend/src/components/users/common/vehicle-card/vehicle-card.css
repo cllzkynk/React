@@ -1,0 +1,38 @@
+.vehicle-card .image-container{
+    position: relative;
+}
+
+.vehicle-card{
+    cursor: pointer;
+}
+
+.vehicle-card:hover{
+    background-color: #ececec;
+}
+
+.vehicle-card .price{
+    position: absolute;
+    bottom:0;
+    right:10px;
+    background-color: var(--color1);
+    border-radius: 0.5rem;
+    padding:0.2rem 0.7rem;
+    color: white;
+}
+
+.vehicle-card .price span{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.vehicle-card ul{
+    list-style: none;
+    margin:0;
+    padding: 0;
+
+}
+
+.vehicle-card ul svg{
+    color: var(--color1);
+    font-size: 1.2rem;
+}

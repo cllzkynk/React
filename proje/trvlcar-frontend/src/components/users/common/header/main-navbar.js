@@ -1,16 +1,15 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../../../../assets/img/logo/logo.png";
-import {RiHome3Line, RiCarLine, RiInformationLine, RiMapPinLine, RiUserLine} from "react-icons/ri";
+import {RiHome3Line, RiCarLine, RiInformationLine, RiMapPinLine} from "react-icons/ri";
 import { Link, useLocation } from "react-router-dom";
 import "./main-navbar.css";
+import UserMenu from "./user-menu";
 
 const MainNavbar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
-
-  console.log(currentPath);
-
+  
   return (
     <Navbar expand="lg" className="main-navbar" variant="dark">
       <Container>
@@ -32,9 +31,7 @@ const MainNavbar = () => {
             <Nav.Link as={Link} to="/contact" className={currentPath === "/contact" ? "active" : ""}>
               <RiMapPinLine/> Contact
             </Nav.Link>
-            <Nav.Link as={Link} to="/auth">
-              <RiUserLine/> Login/Register
-            </Nav.Link>
+            <UserMenu/>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -7,9 +7,20 @@ const login = (credentials) => {
     return axios.post(`${API_URL}/login`, credentials);
 }
 
+const register = (user) => {
+    return axios.post(`${API_URL}/register`, user);
+}
 
 const getUser = () => {
     return axios.get(`${API_URL}/user`, { headers:  authHeader() });
 }
 
-export {login, getUser};
+const updateProfile = (user) => {
+    return axios.put(`${API_URL}/user`, user, { headers:  authHeader() });
+}
+
+const updatePassword = (passwords) => {
+    return axios.patch(`${API_URL}/user/auth`, passwords, { headers:  authHeader() });
+}
+
+export {login, getUser, register, updateProfile, updatePassword};

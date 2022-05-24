@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import "./auth.css";
 import logo from "../../../assets/img/logo/logo.png";
@@ -9,12 +9,13 @@ import RegisterForm from "./register-form";
 
 const Auth = () => {
   const navigate = useNavigate();
+  const [defaultTab, setDefaultTab] = useState("login");
 
   return (
     <Container fluid className="auth">
       <Row>
         <Col md={7}>
-          <img src={logo} />
+          <img src={logo} alt="TRVLCar"/>
           <RiCloseCircleLine
             className="close-btn"
             onClick={() => navigate(-1)}
@@ -23,12 +24,16 @@ const Auth = () => {
         <Col md={5}>
           <Card>
             <Card.Body>
-              <Tabs defaultActiveKey="login" className="mb-3">
+              <Tabs
+                activeKey={defaultTab}
+                onSelect={(k) => setDefaultTab(k)}
+                className="mb-3"
+              >
                 <Tab eventKey="login" title="Login">
                   <LoginForm />
                 </Tab>
                 <Tab eventKey="register" title="Register">
-                  <RegisterForm />
+                  <RegisterForm setDefaultTab={setDefaultTab}/>
                 </Tab>
               </Tabs>
             </Card.Body>

@@ -18,7 +18,7 @@ const ContactBar = () => {
           <br /><a href="mailto:support@trvlcar.com">support@trvlcar.com</a>
         </div>
       </li>
-      <li>
+      <li className="d-none d-sm-flex">
         <RiMapPinLine />
         <div>
           Cherry Tree Ct, Jacksonville, 32216
