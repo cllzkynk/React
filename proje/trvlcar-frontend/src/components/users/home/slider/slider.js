@@ -12,6 +12,7 @@ const Slider = () => {
 
         return (
           <Carousel.Item
+          
             key={index}
             style={{ backgroundImage: `url(${image})` }}
           >

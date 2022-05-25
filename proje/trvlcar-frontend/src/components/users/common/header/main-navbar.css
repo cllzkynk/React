@@ -19,3 +19,12 @@
     background-color: var(--color1);
     border-radius: 0.3rem;
 }
+
+@media(max-width: 992px){
+    .main-navbar .navbar-collapse{
+        background-color: var(--color2);
+        border-radius: 1rem;
+        padding:2rem;
+        box-shadow: 0 0 15px black;
+    }
+}

@@ -15,7 +15,7 @@ const VehicleCard = ({ vehicle }) => {
       <div className="image-container">
         <Card.Img variant="top" src={imageSrc} />
         <span className="price">
-          <span>${pricePerHour}</span>/day
+          <span>${pricePerHour}</span>/hour
         </span>
       </div>
 
