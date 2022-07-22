@@ -15,7 +15,10 @@ import * as Yup from "yup";
 import MaskedInput from "react-maskedinput";
 import SectionHeader from "../common/section-header/section-header";
 import moment from "moment";
-import { createReservation, isVehicleAvailable } from "../../../api/reservation-service";
+import {
+  createReservation,
+  isVehicleAvailable,
+} from "../../../api/reservation-service";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -44,11 +47,31 @@ const VehicleBookingForm = ({ vehicle }) => {
     dropOfLocation: Yup.string().required("Enter a drop off place please."),
     pickUpDate: Yup.string().required("Select a pick up date please."),
     pickUpTime: Yup.string().required("Select a pick up time please."),
-    dropOffDate: Yup.string().required("Select a drop off date please."),
+    dropOffDate: Yup.string()
+      .required("Select a drop off date please.")
+      .test(
+        "date-time",
+        "Dropoff date-time should get after the pickup date-time",
+        (value, context) =>
+          checkDates({
+            dropOffDate: value,
+            pickUpDate: context.parent.pickUpDate,
+            dropOffTime: context.parent.dropOffTime,
+            pickUpTime: context.parent.pickUpTime,
+          })
+      ),
     dropOffTime: Yup.string().required("Select a drop off time please."),
     cardNo: Yup.string().required("Please enter the card number"),
     nameOnCard: Yup.string().required("Please enter the name of card"),
-    expireDate: Yup.string().required("Please enter the expire date"),
+    expireDate: Yup.string()
+      .required("Please enter the expire date")
+      .test("month_check", "Enter a valid expire date (MM/YY)", (value) => {
+        if(!value) return true;
+        const date = moment(`30/${value}`, "DD/MM/YY");
+        if (!date.isValid()) return false;
+        if (date < new Date()) return false;
+        return true;
+      }),
     cvc: Yup.number()
       .typeError("Must be number")
       .required("Please enter the cvc"),
@@ -70,12 +93,8 @@ const VehicleBookingForm = ({ vehicle }) => {
 
     const dto = {
       carId: vehicle.id,
-      pickUpTime: moment(`${pickUpDate} ${pickUpTime}`).format(
-        "MM/DD/YYYY HH:mm:ss"
-      ),
-      dropOfTime: moment(`${dropOffDate} ${dropOffTime}`).format(
-        "MM/DD/YYYY HH:mm:ss"
-      ),
+      pickUpTime: formatDateTime(pickUpDate, pickUpTime),
+      dropOfTime: formatDateTime(dropOffDate, dropOffTime),
       pickUpLocation: pickUpLocation,
       dropOfLocation: dropOfLocation,
     };
@@ -86,17 +105,11 @@ const VehicleBookingForm = ({ vehicle }) => {
       await createReservation(dto);
       toast("Reservation created successfully");
       navigate("/");
-
     } catch (err) {
       toast(err.response.data.message);
-    }
-    finally{
+    } finally {
       setLoading(false);
     }
-
-    
-
-
   };
 
   const formik = useFormik({
@@ -109,20 +122,18 @@ const VehicleBookingForm = ({ vehicle }) => {
     const { pickUpDate, pickUpTime, dropOffDate, dropOffTime } = formik.values;
 
     if (!pickUpDate || !pickUpTime || !dropOffDate || !dropOffTime) return;
-
-    const dto = {
-      carId: vehicle.id,
-      pickUpDateTime: moment(`${pickUpDate} ${pickUpTime}`).format(
-        "MM/DD/YYYY HH:mm:ss"
-      ),
-      dropOffDateTime: moment(`${dropOffDate} ${dropOffTime}`).format(
-        "MM/DD/YYYY HH:mm:ss"
-      ),
-    };
-
-    setLoading(true);
-
     try {
+      if (!checkDates(formik.values))
+        throw "Dropoff date-time should get after the pickup date-time";
+
+      const dto = {
+        carId: vehicle.id,
+        pickUpDateTime: formatDateTime(pickUpDate, pickUpTime),
+        dropOffDateTime: formatDateTime(dropOffDate, dropOffTime),
+      };
+
+      setLoading(true);
+
       const resp = await isVehicleAvailable(dto);
       const { isAvailable, totalPrice } = resp.data;
 
@@ -134,11 +145,22 @@ const VehicleBookingForm = ({ vehicle }) => {
           "The car you selected is not available in these days. Please select another one"
         );
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      toast(err || err.response.data.message);
     } finally {
       setLoading(false);
     }
+  };
+
+  const formatDateTime = (date, time) => {
+    return moment(`${date} ${time}`).format("MM/DD/YYYY HH:mm:ss");
+  };
+
+  const checkDates = (values) => {
+    const { pickUpDate, pickUpTime, dropOffDate, dropOffTime } = values;
+    const d1 = formatDateTime(pickUpDate, pickUpTime);
+    const d2 = formatDateTime(dropOffDate, dropOffTime);
+    return d2 > d1;
   };
 
   return (
@@ -182,6 +204,7 @@ const VehicleBookingForm = ({ vehicle }) => {
                 <FloatingLabel label="Pickup Date" className="flex-grow-1">
                   <Form.Control
                     type="date"
+                    min={moment().format("YYYY-MM-DD")}
                     placeholder="Pickup Date"
                     {...formik.getFieldProps("pickUpDate")}
                     isInvalid={
@@ -215,6 +238,7 @@ const VehicleBookingForm = ({ vehicle }) => {
                   <Form.Control
                     type="date"
                     placeholder="Dropoff Date"
+                    min={moment(formik.values.pickUpDate).format("YYYY-MM-DD")}
                     {...formik.getFieldProps("dropOffDate")}
                     isInvalid={
                       formik.touched.dropOffDate && formik.errors.dropOffDate

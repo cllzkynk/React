@@ -14,7 +14,6 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const { dispatchUser } = useStore();
 
-
   const initialValues = {
     email: "",
     password: "",
@@ -25,35 +24,25 @@ const LoginForm = () => {
     password: Yup.string().required("Please enter your password"),
   });
 
-  const onSubmit = (values) => {
-
+  const onSubmit =  async (values) => {
     setLoading(true);
 
-    login(values).then( respLogin => {
+    try {
+      let resp = await login(values);
+      localStorage.setItem("token", resp.data.token);
+      resp = await getUser();
+      dispatchUser(loginSuccess(resp.data));
+      navigate(-1);
 
-      localStorage.setItem("token", respLogin.data.token);
-
-      getUser().then( respUser=> {
-        console.log(respUser);
-
-        setLoading(false);
-        dispatchUser(loginSuccess(respUser.data));
-        navigate(-1);
-      })
-      .catch( err=>{
-        console.log(err);
-        toast(err.response.data.message);
-        setLoading(false);
-      })
-      
-    })
-    .catch( err=>   {
+    } catch (err) {
       console.log(err);
       toast(err.response.data.message);
+    }
+    finally{
       setLoading(false);
-    })
+    }
 
-
+    
   };
 
   const formik = useFormik({
@@ -78,13 +67,15 @@ const LoginForm = () => {
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Password</Form.Label>
-        <PasswordInput {...formik.getFieldProps("password")}
+        <PasswordInput
+          {...formik.getFieldProps("password")}
           isInvalid={formik.touched.password && formik.errors.password}
           isValid={formik.touched.password && !formik.errors.password}
-          error={formik.errors.password}/>
+          error={formik.errors.password}
+        />
       </Form.Group>
       <Button variant="primary" type="submit" disabled={loading}>
-        {loading && <Spinner animation="border" size="sm"/>}  Login
+        {loading && <Spinner animation="border" size="sm" />} Login
       </Button>
     </Form>
   );

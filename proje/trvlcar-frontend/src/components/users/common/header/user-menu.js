@@ -12,22 +12,33 @@ const UserMenu = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    alertify.confirm(
-      "Logout",
-      "Are you sure want to logout?",
-      () => {
-        dispatchUser(logout());
-        localStorage.removeItem("token");
-        navigate("/");
-      },
-      () => {}
-    ).set('labels', {ok:'Yes', cancel:'No'}); ;
+    alertify
+      .confirm(
+        "Logout",
+        "Are you sure want to logout?",
+        () => {
+          dispatchUser(logout());
+          localStorage.removeItem("token");
+          navigate("/");
+        },
+        () => {}
+      )
+      .set("labels", { ok: "Yes", cancel: "No" });
   };
 
   return (
     <>
       {isUserLogin ? (
         <NavDropdown title={`${user.firstName} ${user.lastName}`} align="end">
+          {user.roles.includes("Administrator") && (
+            <>
+              <NavDropdown.Item as={Link} to="/admin">
+                Admin Panel
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+            </>
+          )}
+
           <NavDropdown.Item as={Link} to="/user/reservations">
             Reservations
           </NavDropdown.Item>

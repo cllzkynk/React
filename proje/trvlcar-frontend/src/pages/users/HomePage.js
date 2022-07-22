@@ -11,7 +11,7 @@ const HomePage = () => {
     <>
       <Slider/>
       <Bookbar/>
-      <Spacer/>
+      <Spacer />
       <PopularCars/>
       <Spacer/>
       <Testimonals/>

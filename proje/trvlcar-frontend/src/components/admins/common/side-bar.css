@@ -1,0 +1,35 @@
+.admin-side-bar{
+    background-color: var(--color2);
+    height: 100vh;
+    width:20vw;
+    text-align: center;
+    position: fixed;
+    top:0;
+    left:0;
+    padding:2rem;
+}
+
+.admin-side-bar ul{
+    margin:0;
+    padding: 0;
+    display:inline-block;
+    margin-top:2rem;
+}
+
+.admin-side-bar ul li{
+    text-align: left;
+    line-height: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.admin-side-bar ul li a{
+    color: white;
+}
+
+.admin-side-bar ul li a svg{
+    color: var(--color1);
+}
+
+
+
+
